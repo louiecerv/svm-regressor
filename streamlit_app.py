@@ -176,6 +176,8 @@ def display_form3():
         value=-120.0  # Initial value
     )
     form3.text("Click the Predict button to generate the predicted price.")
+
+    predictbn = form3.form_submit_button("Predict")    
     if predictbn:    
         testdata = [[medinc, houseage, averooms, avebedrms, population, aveoccup, latitude, longitude]]
         scaler = st.session_state["scaler"]
@@ -183,8 +185,7 @@ def display_form3():
         svm_reg =  st.session_state["svm_reg"]
         predicted =  svm_reg.predict(test_data_scaled)
         predvalue = predicted[0]* 100000
-        predictbn = form3.form_submit_button("Predict")
-
+        
         form3.text("$ " + str(predvalue))
 
     submit3 = form3.form_submit_button("Reset")
