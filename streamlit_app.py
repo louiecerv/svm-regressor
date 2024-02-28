@@ -177,12 +177,12 @@ def display_form3():
     )
 
     st.text(longitude)
-    
+
     testdata = [[medinc, houseage, averooms, avebedrms, population, aveoccup, latitude, longitude]]
 
     form3.text("Click the Predict button to generate the predicted price.")
 
-    predictbn = form3.form_submit_button("Predict")    
+    predictbn = form3.form_submit_button("Predict", on_click=lambda: update_values(medinc, houseage))    
     if predictbn:            
         scaler = st.session_state["scaler"]
         test_data_scaled =scaler.transform(testdata)
