@@ -1,4 +1,11 @@
 import streamlit as st
+import matplotlib.pyplot as plt
+from sklearn.svm import SVR
+from sklearn.metrics import mean_squared_error, explained_variance_score
+from sklearn.utils import shuffle
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import fetch_california_housing
 
 # Define the Streamlit app
 def app():
@@ -43,8 +50,20 @@ def display_form2():
     st.session_state["current_form"] = 2
     form2 = st.form("training")
     form2.subheader('Classifier Training')        
-    # insert the rest of the code to train the classifier here        
-    form2.write('Display the training result')
+
+    # Load the California housing data
+    data = fetch_california_housing()
+
+    # Convert data features to a DataFrame
+    feature_names = data.feature_names
+    df = pd.DataFrame(data.data, columns=feature_names)
+    df['target'] = data.target
+    
+    form2.write('The housing dataset')
+    form2.write(df)
+
+ 
+
 
     submit2 = form2.form_submit_button("Train")
 
