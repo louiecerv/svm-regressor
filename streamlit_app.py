@@ -64,6 +64,34 @@ def display_form2():
     form2.write('The housing dataset')
     form2.write(df)
     submit2 = form2.form_submit_button("Train")
+
+    # Separate features and target variable
+    X = df.drop('target', axis=1)  # Target variable column name
+    y = df['target']
+
+    # Split data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    # Standardize features using StandardScaler (recommended)
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+
+    # Create and train the SVM regressor
+    from sklearn.linear_model import LinearRegression
+    lm = LinearRegression()
+    lm.fit(X_train_scaled, y_train)
+
+    # Make predictions on the test set
+    y_test_pred = lm.predict(X_test_scaled)
+
+    # Evaluate performance using appropriate metrics (e.g., mean squared error, R-squared)
+    from sklearn.metrics import mean_squared_error, r2_score
+    mse = mean_squared_error(y_test, y_test_pred)
+    r2 = r2_score(y_test, y_test_pred)
+    form2.write("Mean squared error:", mse)
+    form2.write("R-squared:", r2)
+
     if submit2:        
         display_form3()
 
