@@ -176,8 +176,6 @@ def display_form3():
         value=-120.0  # Initial value
     )
 
-    st.text(longitude)
-
     testdata = [[medinc, houseage, averooms, avebedrms, population, aveoccup, latitude, longitude]]
 
     form3.text("Click the Predict button to generate the predicted price.")
