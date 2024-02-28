@@ -158,7 +158,7 @@ def display_form3():
         value=-120.0  # Initial value
     )
     
-    inputvalues = [medinc, houseage, averooms]
+    inputvalues = [medinc, houseage, averooms, population, aveoccup, latitude, longitude]
 
     predictbn = form3.form_submit_button("Predict")
     if predictbn:                    
