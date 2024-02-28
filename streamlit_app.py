@@ -92,6 +92,7 @@ def display_form2():
         #lm.fit(X_train_scaled, y_train)
         svm_reg = st.session_state["svm_reg"]
         svm_reg.fit(X_train_scaled, y_train)
+        st.session_state["svm_reg"] = svm_reg
 
         # Make predictions on the test set
         y_test_pred = svm_reg.predict(X_test_scaled)
@@ -178,10 +179,12 @@ def display_form3():
     testdata = [[medinc, houseage, averooms, avebedrms, population, aveoccup, latitude, longitude]]
     scaler = st.session_state["scaler"]
     test_data_scaled =scaler.transform(testdata)
+    svm_reg =  st.session_state["svm_reg"]
+    predicted =  svm_reg.predict(test_data_scaled[0]) * 100000
 
     predictbn = form3.form_submit_button("Predict")
     if predictbn:                    
-        form3.text(test_data_scaled)
+        form3.text("$ " + str(predicted))
 
     submit3 = form3.form_submit_button("Reset")
     if submit3:
