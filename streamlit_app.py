@@ -104,10 +104,10 @@ def display_form3():
 
     medinc = form3.slider(
         label="MedInc (Median Income):",
-        min_value=.49,
-        max_value=15,
+        min_value=0.49,
+        max_value=15.0,
         step=0.1,
-        value=5  # Initial value
+        value=5.0  # Initial value
     )
 
     houseage = form3.slider(
