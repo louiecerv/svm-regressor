@@ -19,6 +19,10 @@ def app():
     if "current_form" not in st.session_state:
         st.session_state["current_form"] = 1    
 
+    if "scaler" not in st.session_state:
+        st.session_state["scaler"] = StandardScaler()
+
+
     # Display the appropriate form based on the current form state
     if st.session_state["current_form"] == 1:
         display_form1()
@@ -75,10 +79,11 @@ def display_form2():
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
         # Standardize features using StandardScaler (recommended)
-        scaler = StandardScaler()
+        scaler = st.session_state["scaler"] 
         X_train_scaled = scaler.fit_transform(X_train)
         X_test_scaled = scaler.transform(X_test)
-
+        st.session_state["scaler"] = scaler
+        
         # Create and train the SVM regressor
         from sklearn.linear_model import LinearRegression
         lm = LinearRegression()
@@ -158,7 +163,7 @@ def display_form3():
         value=-120.0  # Initial value
     )
     
-    inputvalues = [medinc, houseage, averooms, population, aveoccup, latitude, longitude]
+    testdata = [medinc, houseage, averooms, population, aveoccup, latitude, longitude]
 
     predictbn = form3.form_submit_button("Predict")
     if predictbn:                    
