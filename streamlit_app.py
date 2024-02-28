@@ -195,5 +195,7 @@ def display_form3():
         st.session_state.reset_app = True
         st.session_state.clear()
 
+
+    
 if __name__ == "__main__":
     app()
