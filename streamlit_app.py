@@ -1,5 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
 from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error, explained_variance_score
 from sklearn.utils import shuffle
@@ -61,9 +63,6 @@ def display_form2():
     
     form2.write('The housing dataset')
     form2.write(df)
-
- 
-
 
     submit2 = form2.form_submit_button("Train")
 
