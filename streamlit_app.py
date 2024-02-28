@@ -126,6 +126,39 @@ def display_form3():
         value=10  # Initial value
     )
 
+    population = form3.slider(
+        label="Population:",
+        min_value=3,
+        max_value=35000,
+        step=1,
+        value=100  # Initial value
+    )
+
+    aveoccup = form3.slider(
+        label="AveOccup (Average Occupancy):",
+        min_value=1,
+        max_value=141,
+        step=1,
+        value=10  # Initial value
+    )
+
+    latitude = form3.slider(
+        label="Latitude:",
+        min_value=1,
+        max_value=141,
+        step=1,
+        value=10  # Initial value
+    )
+
+
+    longitude = form3.slider(
+        label="Longitude:",
+        min_value=1,
+        max_value=141,
+        step=1,
+        value=10  # Initial value
+    )
+    
     inputvalues = [medinc, houseage, averooms]
 
     predictbn = form3.form_submit_button("Predict")
