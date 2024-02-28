@@ -22,6 +22,8 @@ def app():
     if "scaler" not in st.session_state:
         st.session_state["scaler"] = StandardScaler()
 
+    if "svm_reg" not in st.session_state:
+        st.session_state["svm_reg"] = SVR()
 
     # Display the appropriate form based on the current form state
     if st.session_state["current_form"] == 1:
@@ -85,12 +87,14 @@ def display_form2():
         st.session_state["scaler"] = scaler
 
         # Create and train the SVM regressor
-        from sklearn.linear_model import LinearRegression
-        lm = LinearRegression()
-        lm.fit(X_train_scaled, y_train)
+        #from sklearn.linear_model import LinearRegression
+        #lm = LinearRegression()
+        #lm.fit(X_train_scaled, y_train)
+        svm_reg = st.session_state["svm_reg"]
+        svm_reg.fit(X_train_scaled, y_train)
 
         # Make predictions on the test set
-        y_test_pred = lm.predict(X_test_scaled)
+        y_test_pred = svm_reg.predict(X_test_scaled)
 
         # Evaluate performance using appropriate metrics (e.g., mean squared error, R-squared)
         from sklearn.metrics import mean_squared_error, r2_score
