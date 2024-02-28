@@ -180,7 +180,7 @@ def display_form3():
     scaler = st.session_state["scaler"]
     test_data_scaled =scaler.transform(testdata)
     svm_reg =  st.session_state["svm_reg"]
-    predicted =  svm_reg.predict(test_data_scaled[0]) * 100000
+    predicted =  svm_reg.predict(test_data_scaled) * 100000
 
     predictbn = form3.form_submit_button("Predict")
     if predictbn:                    
