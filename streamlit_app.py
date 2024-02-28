@@ -131,6 +131,14 @@ def display_form3():
         value=10  # Initial value
     )
 
+    avebedrms = form3.slider(
+        label="AveBedrms (Average Bedrooms):",
+        min_value=1,
+        max_value=141,
+        step=1,
+        value=10  # Initial value
+    )
+
     population = form3.slider(
         label="Population:",
         min_value=3,
@@ -163,7 +171,7 @@ def display_form3():
         value=-120.0  # Initial value
     )
     
-    testdata = [[medinc, houseage, averooms, population, aveoccup, latitude, longitude]]
+    testdata = [[medinc, houseage, averooms, avebedrms, population, aveoccup, latitude, longitude]]
     scaler = st.session_state["scaler"]
     test_data_scaled =scaler.transform(testdata)
 
