@@ -83,7 +83,7 @@ def display_form2():
         X_train_scaled = scaler.fit_transform(X_train)
         X_test_scaled = scaler.transform(X_test)
         st.session_state["scaler"] = scaler
-        
+
         # Create and train the SVM regressor
         from sklearn.linear_model import LinearRegression
         lm = LinearRegression()
@@ -164,10 +164,12 @@ def display_form3():
     )
     
     testdata = [medinc, houseage, averooms, population, aveoccup, latitude, longitude]
+    scaler = st.session_state["scaler"]
+    test_data_scaled =scaler.transform(testdata)
 
     predictbn = form3.form_submit_button("Predict")
     if predictbn:                    
-        form3.text(inputvalues)
+        form3.text(test_data_scaled)
 
     submit3 = form3.form_submit_button("Reset")
     if submit3:
