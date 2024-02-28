@@ -102,16 +102,35 @@ def display_form3():
     form3.subheader('Prediction')
     form3.text('replace with the result of the prediction model.')
 
-    n_clusters = form3.slider(
-        label="Number of Clusters:",
-        min_value=2,
-        max_value=6,
-        value=2,  # Initial value
+    medinc = form3.slider(
+        label="MedInc (Median Income):",
+        min_value=.49,
+        max_value=15,
+        step=0.1,
+        value=5  # Initial value
     )
+
+    houseage = form3.slider(
+        label="HouseAge (Median Age):",
+        min_value=1,
+        max_value=52,
+        step=1,
+        value=21  # Initial value
+    )
+
+    averooms = form3.slider(
+        label="AveRooms (Average Rooms):",
+        min_value=1,
+        max_value=141,
+        step=1,
+        value=10  # Initial value
+    )
+
+    inputvalues = [medinc, houseage, averooms]
 
     predictbn = form3.form_submit_button("Predict")
     if predictbn:                    
-        form3.text('User selected nclusters = ' + str(n_clusters))
+        form3.text(inputvalues)
 
     submit3 = form3.form_submit_button("Reset")
     if submit3:
