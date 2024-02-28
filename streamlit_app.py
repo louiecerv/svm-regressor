@@ -163,7 +163,7 @@ def display_form3():
         value=-120.0  # Initial value
     )
     
-    testdata = [medinc, houseage, averooms, population, aveoccup, latitude, longitude]
+    testdata = [[medinc, houseage, averooms, population, aveoccup, latitude, longitude]]
     scaler = st.session_state["scaler"]
     test_data_scaled =scaler.transform(testdata)
 
