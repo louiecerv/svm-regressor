@@ -137,26 +137,25 @@ def display_form3():
     aveoccup = form3.slider(
         label="AveOccup (Average Occupancy):",
         min_value=1,
-        max_value=141,
+        max_value=1243,
         step=1,
-        value=10  # Initial value
+        value=100  # Initial value
     )
 
     latitude = form3.slider(
         label="Latitude:",
-        min_value=1,
-        max_value=141,
-        step=1,
-        value=10  # Initial value
+        min_value=32.5,
+        max_value=41.95,
+        step=0.1,
+        value=37.0  # Initial value
     )
-
 
     longitude = form3.slider(
         label="Longitude:",
-        min_value=1,
-        max_value=141,
-        step=1,
-        value=10  # Initial value
+        min_value=-124.5,
+        max_value=-114.0,
+        step=0.1,
+        value=-120.0  # Initial value
     )
     
     inputvalues = [medinc, houseage, averooms]
