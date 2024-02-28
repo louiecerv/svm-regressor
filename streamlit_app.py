@@ -180,7 +180,7 @@ def display_form3():
 
     form3.text("Click the Predict button to generate the predicted price.")
 
-    predictbn = form3.form_submit_button("Predict", on_click=lambda: update_values(medinc, houseage))    
+    predictbn = form3.form_submit_button("Predict")    
     if predictbn:            
         scaler = st.session_state["scaler"]
         test_data_scaled =scaler.transform(testdata)
