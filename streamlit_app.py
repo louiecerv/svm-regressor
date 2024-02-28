@@ -63,9 +63,7 @@ def display_form2():
     
     form2.write('The housing dataset')
     form2.write(df)
-
     submit2 = form2.form_submit_button("Train")
-
     if submit2:        
         display_form3()
 
