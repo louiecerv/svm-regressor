@@ -233,9 +233,9 @@ def display_form3():
         form3.text('Test data = ' + str(testdata))
         form3.text('Test data scaled = ' + str(test_data_scaled))
 
-        svm_reg =  st.session_state["svm_reg"]
+        #svm_reg =  st.session_state["svm_reg"]
         
-        predicted =  svm_reg.predict(test_data_scaled)
+        predicted =  st.session_state["svm_reg"].predict(test_data_scaled)
         predvalue = predicted[0]*100000
         form3.text(predicted)
         form3.subheader("Predicted Property Value = $ " + f"{predvalue:,.2f}")
