@@ -141,7 +141,7 @@ def display_form3():
         min_value=0.49,
         max_value=15.0,
         step=0.1,
-        value=5.0  # Initial value
+        value=5.0,  # Initial value
         on_change=update_values(),
         key="medinc"
     )
@@ -151,7 +151,7 @@ def display_form3():
         min_value=1,
         max_value=52,
         step=1,
-        value=21  # Initial value
+        value=21,  # Initial value
         on_change=update_values(),
         key="houseage"
 
@@ -162,7 +162,7 @@ def display_form3():
         min_value=1,
         max_value=141,
         step=1,
-        value=10  # Initial value
+        value=10,  # Initial value
         on_change=update_values(),
         key="averooms"
     )
@@ -172,7 +172,7 @@ def display_form3():
         min_value=1,
         max_value=141,
         step=1,
-        value=10  # Initial value
+        value=10,  # Initial value
         on_change=update_values(),
         key="avebedrms"
 
@@ -183,7 +183,7 @@ def display_form3():
         min_value=3,
         max_value=35000,
         step=1,
-        value=100  # Initial value
+        value=100,  # Initial value
         on_change=update_values(),
         key="population"
 
@@ -194,7 +194,7 @@ def display_form3():
         min_value=1,
         max_value=1243,
         step=1,
-        value=100  # Initial value
+        value=100,  # Initial value
         on_change=update_values(),
         key="aveoccup"
 
@@ -205,7 +205,7 @@ def display_form3():
         min_value=32.5,
         max_value=41.95,
         step=0.1,
-        value=37.0  # Initial value
+        value=37.0,  # Initial value
         on_change=update_values(),
         key="latitude"
 
@@ -216,7 +216,7 @@ def display_form3():
         min_value=-124.5,
         max_value=-114.0,
         step=0.1,
-        value=-120.0  # Initial value
+        value=-120.0,  # Initial value
         on_change=update_values(),
         key="longitude"
     )
