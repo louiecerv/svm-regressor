@@ -227,7 +227,6 @@ def display_form3():
     predictbn = form3.form_submit_button("Predict")    
     if predictbn:     
         testdata = st.session_state['input_array']
-        form3.text('Test data scaled = ' + str(testdata))
         scaler = st.session_state["scaler"]
         test_data_scaled =scaler.transform(testdata)
         svm_reg =  st.session_state["svm_reg"]
@@ -236,6 +235,7 @@ def display_form3():
         predvalue = predicted[0]* 100000
 
         form3.subheader("Predicted Property Value = $ " + f"{predvalue:,.2f}")
+        form3.text('Test data scaled = ' + str(st.session_state['input_array']))        
 
     submit3 = form3.form_submit_button("Reset")
     if submit3:
