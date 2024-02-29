@@ -220,15 +220,17 @@ def display_form3():
         key="longitude"
     )
 
-    testdata = st.session_state['input_array']
+    
     form3.text("Click the Predict button to generate the predicted price.")
 
     predictbn = form3.form_submit_button("Predict")    
-    if predictbn:            
+    if predictbn:     
+        testdata = st.session_state['input_array']
+        form3.text('Test data scaled = ' + str(testdata))
         scaler = st.session_state["scaler"]
         test_data_scaled =scaler.transform(testdata)
         svm_reg =  st.session_state["svm_reg"]
-        form3.text('Test data scaled = ' + str(test_data_scaled))
+        
         predicted =  svm_reg.predict(test_data_scaled)
         predvalue = predicted[0]* 100000
 
