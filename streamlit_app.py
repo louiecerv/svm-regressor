@@ -237,7 +237,7 @@ def display_form3():
         
         predicted =  svm_reg.predict(test_data_scaled)
         predvalue = predicted[0]*100000
-
+        form3.text(predicted)
         form3.subheader("Predicted Property Value = $ " + f"{predvalue:,.2f}")
     
 
