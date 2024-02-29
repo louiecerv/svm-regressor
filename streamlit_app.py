@@ -87,12 +87,14 @@ def display_form2():
 
         st.session_state["scaler"] = scaler
 
-        # Create and train the SVM regressor
-        from sklearn.linear_model import LinearRegression
-        svm_reg = LinearRegression()
-        svm_reg.fit(X_train_scaled, y_train)
-        #svm_reg = st.session_state["svm_reg"]
+        #This part uses the linear regressor
+        #from sklearn.linear_model import LinearRegression
+        #svm_reg = LinearRegression()
         #svm_reg.fit(X_train_scaled, y_train)
+
+        # Create and train the SVM regressor
+        svm_reg = st.session_state["svm_reg"]
+        svm_reg.fit(X_train_scaled, y_train)
         st.session_state["svm_reg"] = svm_reg
 
         # Make predictions on the test set
