@@ -99,7 +99,7 @@ def display_form2():
         st.session_state["svm_reg"].fit(X_train_scaled, y_train)
 
         # Make predictions on the test set
-        y_test_pred = svm_reg.predict(X_test_scaled)
+        y_test_pred = st.session_state["svm_reg"].predict(X_test_scaled)
 
         # Evaluate performance using appropriate metrics (e.g., mean squared error, R-squared)
         from sklearn.metrics import mean_squared_error, r2_score
@@ -226,7 +226,7 @@ def display_form3():
     if predictbn:     
         testdata = st.session_state['input_array']
         scaler = st.session_state["scaler"]
-        test_data_scaled =scaler.fit_transform(testdata)
+        test_data_scaled =scaler.transform(testdata)
 
         form3.text('Test data = ' + str(testdata))
         form3.text('Test data scaled = ' + str(test_data_scaled))
