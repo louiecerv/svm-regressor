@@ -111,7 +111,7 @@ def display_form3():
     st.session_state["current_form"] = 3
     form3 = st.form("prediction")
     form3.subheader('Prediction')
-    form3.text('replace with the result of the prediction model.')
+    form3.text('The trained model can now predict the property value based on the user inputs.')
 
     medinc = form3.slider(
         label="MedInc (Median Income):",
@@ -189,7 +189,7 @@ def display_form3():
         predicted =  svm_reg.predict(test_data_scaled)
         predvalue = predicted[0]* 100000
         
-        form3.subheader("$ " + str(predvalue))
+        form3.subheader("Predicted Property Value = $ " + str(predvalue))
 
     submit3 = form3.form_submit_button("Reset")
     if submit3:
