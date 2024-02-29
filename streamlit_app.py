@@ -99,7 +99,7 @@ def display_form2():
         svm_reg = st.session_state["svm_reg"]
         svm_reg.fit(X_train_scaled, y_train)
         st.session_state["svm_reg"] = svm_reg
-        
+
         # Make predictions on the test set
         y_test_pred = st.session_state["svm_reg"].predict(X_test_scaled)
 
@@ -230,9 +230,12 @@ def display_form3():
         scaler = st.session_state["scaler"]
         test_data_scaled =scaler.transform(testdata)
 
+        test_data_scaled = np.array(test_data_scaled)
+        
         form3.text('Test data = ' + str(testdata))
         form3.text('Test data scaled = ' + str(test_data_scaled))
-        
+
+
         predicted =  st.session_state["svm_reg"].predict(test_data_scaled)
         predvalue = predicted * 100000
         form3.subheader("Predicted Property Value = $ " + f"{predvalue[0]:,.2f}")
