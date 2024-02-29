@@ -254,7 +254,7 @@ def update_values():
     longitude = st.session_state['longitude']
     
     #update the input array
-    input_array = [[medinc, houseage, averooms, avebedrms, 
+    st.session_state['input_array'] = [[medinc, houseage, averooms, avebedrms, 
                     population, aveoccup, latitude, longitude]]
     
 if __name__ == "__main__":
