@@ -221,7 +221,6 @@ def display_form3():
         key="longitude"
     )
 
-    
     form3.text("Click the Predict button to generate the predicted price.")
 
     predictbn = form3.form_submit_button("Predict")    
@@ -231,7 +230,7 @@ def display_form3():
         test_data_scaled =scaler.transform(testdata)
 
         test_data_scaled = np.array(test_data_scaled)
-        
+
         form3.text('Test data = ' + str(testdata))
         form3.text('Test data scaled = ' + str(test_data_scaled))
 
