@@ -95,10 +95,8 @@ def display_form2():
         #svm_reg = LinearRegression()
         #svm_reg.fit(X_train_scaled, y_train)
 
-        # Create and train the SVM regressor
-        svm_reg = st.session_state["svm_reg"]
-        svm_reg.fit(X_train_scaled, y_train)
-        st.session_state["svm_reg"] = svm_reg
+        # Create and train the SVM regressor        
+        st.session_state["svm_reg"].fit(X_train_scaled, y_train)
 
         # Make predictions on the test set
         y_test_pred = svm_reg.predict(X_test_scaled)
