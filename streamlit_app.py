@@ -24,6 +24,9 @@ def app():
 
     if "svm_reg" not in st.session_state:
         st.session_state["svm_reg"] = SVR()
+    
+    if "input_array" not in st.session_state:
+        st.session_state['input_array'] = [[]]
 
     # Display the appropriate form based on the current form state
     if st.session_state["current_form"] == 1:
@@ -132,8 +135,6 @@ def display_form3():
         st.session_state['latitude'] = 0
     if "longitude" not in st.session_state:
         st.session_state['longitude'] = 0
-    if "input_array" not in st.session_state:
-        st.session_state['input_array'] = []
 
     medinc = form3.slider(
         label="MedInc (Median Income):",
