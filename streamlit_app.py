@@ -226,7 +226,7 @@ def display_form3():
     if predictbn:     
         testdata = st.session_state['input_array']
         scaler = st.session_state["scaler"]
-        test_data_scaled =scaler.transform(testdata)
+        test_data_scaled =scaler.fit_transform(testdata)
 
         form3.text('Test data = ' + str(testdata))
         form3.text('Test data scaled = ' + str(test_data_scaled))
