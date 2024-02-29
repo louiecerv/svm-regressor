@@ -189,7 +189,7 @@ def display_form3():
         predicted =  svm_reg.predict(test_data_scaled)
         predvalue = predicted[0]* 100000
         
-        form3.text("$ " + str(predvalue))
+        form3.subheader("$ " + str(predvalue))
 
     submit3 = form3.form_submit_button("Reset")
     if submit3:
