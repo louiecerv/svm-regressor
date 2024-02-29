@@ -24,6 +24,27 @@ def app():
 
     if "svm_reg" not in st.session_state:
         st.session_state["svm_reg"] = SVR()
+        
+    #initialize the slider variables
+    if "medinc" not in st.session_state:        
+        st.session_state['medinc'] = 0
+    if "houseage" not in st.session_state:
+        st.session_state['houseage'] = 0
+    if "averooms" not in st.session_state:
+        st.session_state['averooms'] = 0
+    if "avebedrms" not in st.session_state:
+        st.session_state['avebedrms'] = 0
+    if "population" not in st.session_state:
+        st.session_state['population'] = 0
+    if "aveoccup" not in st.session_state:
+        st.session_state['aveoccup'] = 0
+    if "latitude" not in st.session_state:
+        st.session_state['latitude'] = 0
+    if "longitude" not in st.session_state:
+        st.session_state['longitude'] = 0
+    if "input_array" not in st.session_state:
+        st.session_state['input_array ='] = []
+    
 
     # Display the appropriate form based on the current form state
     if st.session_state["current_form"] == 1:
@@ -121,6 +142,8 @@ def display_form3():
         max_value=15.0,
         step=0.1,
         value=5.0  # Initial value
+        on_change=update_values(),
+        key="medinc"
     )
 
     houseage = form3.slider(
@@ -129,6 +152,9 @@ def display_form3():
         max_value=52,
         step=1,
         value=21  # Initial value
+        on_change=update_values(),
+        key="houseage"
+
     )
 
     averooms = form3.slider(
@@ -137,6 +163,8 @@ def display_form3():
         max_value=141,
         step=1,
         value=10  # Initial value
+        on_change=update_values(),
+        key="averooms"
     )
 
     avebedrms = form3.slider(
@@ -145,6 +173,9 @@ def display_form3():
         max_value=141,
         step=1,
         value=10  # Initial value
+        on_change=update_values(),
+        key="avebedrms"
+
     )
 
     population = form3.slider(
@@ -153,6 +184,9 @@ def display_form3():
         max_value=35000,
         step=1,
         value=100  # Initial value
+        on_change=update_values(),
+        key="population"
+
     )
 
     aveoccup = form3.slider(
@@ -161,6 +195,9 @@ def display_form3():
         max_value=1243,
         step=1,
         value=100  # Initial value
+        on_change=update_values(),
+        key="aveoccup"
+
     )
 
     latitude = form3.slider(
@@ -169,6 +206,9 @@ def display_form3():
         max_value=41.95,
         step=0.1,
         value=37.0  # Initial value
+        on_change=update_values(),
+        key="latitude"
+
     )
 
     longitude = form3.slider(
@@ -177,10 +217,11 @@ def display_form3():
         max_value=-114.0,
         step=0.1,
         value=-120.0  # Initial value
+        on_change=update_values(),
+        key="longitude"
     )
 
-    testdata = [[medinc, houseage, averooms, avebedrms, population, aveoccup, latitude, longitude]]
-
+    testdata = st.session_state['input_array']
     form3.text("Click the Predict button to generate the predicted price.")
 
     predictbn = form3.form_submit_button("Predict")    
@@ -198,7 +239,20 @@ def display_form3():
         st.session_state.reset_app = True
         st.session_state.clear()
 
-
+def update_values():
+    """Get the updated values from the sliders."""
+    medinc = st.session_state['medinc']
+    houseage = st.session_state['houseage']
+    averooms = st.session_state['averooms']
+    avebedrms = st.session_state['avebedrms']
+    population = st.session_state['population']
+    aveoccup = st.session_state['aveoccup']
+    latitude = st.session_state['latitude']
+    longitude = st.session_state['longitude']
+    
+    #update the input array
+    input_array = [[medinc, houseage, averooms, avebedrms, 
+                    population, aveoccup, latitude, longitude]]
     
 if __name__ == "__main__":
     app()
