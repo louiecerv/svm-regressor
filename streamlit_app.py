@@ -95,9 +95,11 @@ def display_form2():
         #svm_reg = LinearRegression()
         #svm_reg.fit(X_train_scaled, y_train)
 
-        # Create and train the SVM regressor        
-        st.session_state["svm_reg"].fit(X_train_scaled, y_train)
-
+        # Create and train the SVM regressor     
+        svm_reg = st.session_state["svm_reg"]
+        svm_reg.fit(X_train_scaled, y_train)
+        st.session_state["svm_reg"] = svm_reg
+        
         # Make predictions on the test set
         y_test_pred = st.session_state["svm_reg"].predict(X_test_scaled)
 
@@ -230,12 +232,9 @@ def display_form3():
 
         form3.text('Test data = ' + str(testdata))
         form3.text('Test data scaled = ' + str(test_data_scaled))
-
-        #svm_reg =  st.session_state["svm_reg"]
         
-        predicted =  st.session_state["svm_reg"].predict(test_data_scaled[0])
+        predicted =  st.session_state["svm_reg"].predict(test_data_scaled)
         predvalue = predicted * 100000
-        form3.text(predicted)
         form3.subheader("Predicted Property Value = $ " + f"{predvalue[0]:,.2f}")
     
 
