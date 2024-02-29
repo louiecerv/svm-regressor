@@ -188,8 +188,8 @@ def display_form3():
         svm_reg =  st.session_state["svm_reg"]
         predicted =  svm_reg.predict(test_data_scaled)
         predvalue = predicted[0]* 100000
-        
-        form3.subheader("Predicted Property Value = $ " + str(predvalue))
+
+        form3.subheader("Predicted Property Value = $ " + f"{predvalue:,.2f}")
 
     submit3 = form3.form_submit_button("Reset")
     if submit3:
