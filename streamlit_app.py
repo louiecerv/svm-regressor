@@ -43,7 +43,7 @@ def app():
     if "longitude" not in st.session_state:
         st.session_state['longitude'] = 0
     if "input_array" not in st.session_state:
-        st.session_state['input_array ='] = []
+        st.session_state['input_array'] = []
     
 
     # Display the appropriate form based on the current form state
