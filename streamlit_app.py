@@ -110,6 +110,20 @@ def display_form2():
         form2.text("Mean squared error:" + str(mse))
         form2.text("R-squared:" +str(r2))
 
+        # Create a figure and an axes object
+        fig, ax = plt.subplots()
+
+        # Scatter plot using the axes object
+        ax.scatter(y_test, y_test_pred, s=5)
+
+        # Set labels and title using the axes object
+        ax.set_xlabel("Prices")
+        ax.set_ylabel("Predicted Prices")
+        ax.set_title("Real vs Predicted Housing Prices")
+
+        # Display the plot
+        form2.pyplot(fig)
+
         display_form3()
 
 def display_form3():    
