@@ -234,12 +234,10 @@ def display_form3():
         form3.text('Test data = ' + str(testdata))
         form3.text('Test data scaled = ' + str(test_data_scaled))
 
-
         predicted =  st.session_state["svm_reg"].predict(test_data_scaled)
         predvalue = predicted * 100000
         form3.subheader("Predicted Property Value = $ " + f"{predvalue[0]:,.2f}")
     
-
     submit3 = form3.form_submit_button("Reset")
     if submit3:
         st.session_state.reset_app = True
