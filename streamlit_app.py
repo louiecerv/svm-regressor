@@ -229,14 +229,14 @@ def display_form3():
         testdata = st.session_state['input_array']
         scaler = st.session_state["scaler"]
         test_data_scaled =scaler.transform(testdata)
-        
+
         form3.text('Test data = ' + str(testdata))
         form3.text('Test data scaled = ' + str(test_data_scaled))
 
         svm_reg =  st.session_state["svm_reg"]
         
         predicted =  svm_reg.predict(test_data_scaled)
-        predvalue = predicted[0]* 100000
+        predvalue = predicted[0]*100000
 
         form3.subheader("Predicted Property Value = $ " + f"{predvalue:,.2f}")
     
