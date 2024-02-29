@@ -107,8 +107,9 @@ def display_form2():
         from sklearn.metrics import mean_squared_error, r2_score
         mse = mean_squared_error(y_test, y_test_pred)
         r2 = r2_score(y_test, y_test_pred)
-        form2.text("Mean squared error:" + str(mse))
-        form2.text("R-squared:" +str(r2))
+        
+        form2.text("Mean squared error:" + f"{mse:,.2f}")
+        form2.text("R-squared:" + f"{r2:,.2f}")
 
         # Create a figure and an axes object
         fig, ax = plt.subplots()
