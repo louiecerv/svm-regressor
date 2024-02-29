@@ -228,6 +228,7 @@ def display_form3():
         scaler = st.session_state["scaler"]
         test_data_scaled =scaler.transform(testdata)
         svm_reg =  st.session_state["svm_reg"]
+        form3.text('Test data scaled = ' + str(test_data_scaled))
         predicted =  svm_reg.predict(test_data_scaled)
         predvalue = predicted[0]* 100000
 
