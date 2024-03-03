@@ -240,18 +240,19 @@ def display_form3():
 
     predictbn = form3.form_submit_button("Predict")    
     if predictbn:     
-        testdata = st.session_state['input_array']
+        testdata = np.array(st.session_state['input_array'])
+
         scaler = st.session_state["scaler"]
         test_data_scaled =scaler.transform(testdata)
 
         test_data_scaled = np.array(test_data_scaled)
 
-        form3.text('Test data = ' + str(testdata))
-        form3.text('Test data scaled = ' + str(test_data_scaled))
+        form3.text((testdata)
+        form3.text(test_data_scaled)
 
         predicted =  st.session_state["svm_reg"].predict(test_data_scaled)
-        predvalue = predicted * 100000
-        form3.subheader("Predicted Property Value = $ " + f"{predvalue[0]:,.2f}")
+        predvalue = predicted[0] * 100000
+        form3.subheader("Predicted Property Value = $ " + f"{predvalue:,.2f}")
     
     submit3 = form3.form_submit_button("Reset")
     if submit3:
