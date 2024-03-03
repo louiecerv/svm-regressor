@@ -247,8 +247,8 @@ def display_form3():
 
         test_data_scaled = np.array(test_data_scaled)
 
-        form3.text((testdata)
-        form3.text(test_data_scaled)
+        form3.write(testdata)
+        form3.write(test_data_scaled)
 
         predicted =  st.session_state["svm_reg"].predict(test_data_scaled)
         predvalue = predicted[0] * 100000
