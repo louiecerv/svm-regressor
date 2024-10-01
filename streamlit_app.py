@@ -41,7 +41,7 @@ def display_form1():
     form1 = st.form("intro")
     form1.subheader('About the Classifier')
     form1.write("""
-        **(c) 2024 Louie F. Cervantes, M.Eng. (Information Engineering)**  
+        **##(c) 2024 Louie F. Cervantes, M.Eng. (Information Engineering)**  
         Department of Computer Science  
         College of Information and Communications Technology  
         West Visayas State University
