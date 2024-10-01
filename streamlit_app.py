@@ -41,10 +41,10 @@ def display_form1():
     form1 = st.form("intro")
     form1.subheader('About the Classifier')
     form1.write("""
-        (c) 2024 Louie F. Cervantes
-        Department of Computer Science
-        College of Information and Communications Technology
-        West Visayas state University
+        **(c) 2024 Louie F. Cervantes, M.Eng. (Information Engineering)**  
+        Department of Computer Science  
+        College of Information and Communications Technology  
+        West Visayas State University
     """)
 
     description = """The California Housing Dataset provides valuable information on housing 
@@ -55,7 +55,7 @@ def display_form1():
     particularly in developing regression models to estimate house prices based on 
     various socioeconomic and geographic factors. By analyzing this data, users can explore 
     patterns and make accurate predictions about housing prices in California."""
-           
+
     form1.write(description)        
     #insert the rest of the information here
 
