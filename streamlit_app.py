@@ -46,8 +46,17 @@ def display_form1():
         College of Information and Communications Technology
         West Visayas state University
     """)
-                
-    form1.write('Replace with the actual description')        
+
+    description = """The California Housing Dataset provides valuable information on housing 
+    attributes from California in 1990, collected by the U.S. Census. It includes key 
+    features such as the median house price, average number of rooms, median income, 
+    population, and proximity to the ocean for various districts across the state. 
+    This dataset is commonly used for predictive modeling and machine learning tasks, 
+    particularly in developing regression models to estimate house prices based on 
+    various socioeconomic and geographic factors. By analyzing this data, users can explore 
+    patterns and make accurate predictions about housing prices in California."""
+           
+    form1.write(description)        
     #insert the rest of the information here
 
     submit1 = form1.form_submit_button("Start")
