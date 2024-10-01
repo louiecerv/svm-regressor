@@ -39,7 +39,7 @@ def app():
 def display_form1():
     st.session_state["current_form"] = 1
     form1 = st.form("intro")
-    form1.subheader('About the Classifier')
+    form1.subheader('California Housing Dataset')
     form1.write("""
         ##### (c) 2024 Louie F. Cervantes, M.Eng. (Information Engineering) 
         Department of Computer Science  
